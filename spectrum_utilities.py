@@ -15,8 +15,7 @@ def _read_igrins_spectrum(filename):
         x = ext.data.field('wavelength') * u.nm.to(u.angstrom)
         y = ext.data.field('flux')
         e = ext.data.field('error')
-        c = ext.data.field('continuum')
-        orders.append((x, y, e, c))
+        orders.append((x, y, e))
     return orders
 
 
@@ -40,8 +39,7 @@ def _trim_igrins_spectrum(orders):
         x = order[0][left_trim:-right_trim]
         y = order[1][left_trim:-right_trim]
         e = order[2][left_trim:-right_trim]
-        c = order[3][left_trim:-right_trim]
-        trimmed_orders.append((x, y, c, e))
+        trimmed_orders.append((x, y, e))
     return trimmed_orders
 
 
