@@ -4,7 +4,7 @@
 
 import numpy as np
 
-from Starfish.grid_tools import PHOENIXGridInterface, HDF5GridStuffer, HDF5Interface
+from Starfish.grid_tools import PHOENIXGridInterface, HDF5GridStuffer, HDF5Interface, Instrument
 
 
 def make_hdf5(filename, model_dir='./', Tvals=None, Z_vals=None, alpha_vals=None, logg_vals=None):
@@ -38,3 +38,10 @@ def make_hdf5(filename, model_dir='./', Tvals=None, Z_vals=None, alpha_vals=None
     # Return an interface object
     return HDF5Interface(filename)
 
+
+class IGRINS(Instrument):
+    '''IGRINS instrument'''
+
+    def __init__(self, name="IGRINS", FWHM=7.5, wl_range=(13000, 26000)):
+        super().__init__(name=name, FWHM=FWHM, wl_range=wl_range)
+        # sets the FWHM and wl_range
