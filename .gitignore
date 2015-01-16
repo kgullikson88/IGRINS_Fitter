@@ -1,1 +1,3 @@
 .idea*
+*.hdf5
+__pycache__
