@@ -48,13 +48,13 @@ class IGRINS(Instrument):
         # sets the FWHM and wl_range
 
 
-def make_instrument_hdf5(hdf5_filename, output_filename):
+def make_instrument_hdf5(hdf5_filename, output_filename, instrument=IGRINS()):
     """
     Makes an instrument-specific HDF5 file
     :param filename:
     :return:
     """
     hdf5_interface = HDF5Interface(hdf5_filename)
-    return HDF5InstGridCreator(hdf5_interface, output_filename, IGRINS())
+    return HDF5InstGridCreator(hdf5_interface, output_filename, instrument)
 
 
